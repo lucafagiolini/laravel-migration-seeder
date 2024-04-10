@@ -11,17 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('trains_tables', function (Blueprint $table) {
+        Schema::create('train', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('Azienda');
-            $table->string('Stazione di arrivo');
-            $table->timestamp('Orario di partenza')->nullable();
-            $table->timestamp('Orario di arrivo')->nullable();
-            $table->string('Codice treno');
-            $table->integer('Numero Carrozze');
-            $table->boolean('In Orario');
-            $table->boolean('Cancellato');
+            $table->string('company');
+            $table->string('starting_station');
+            $table->string('arriving_station');
+            $table->timestamp('departure_time')->nullable();
+            $table->timestamp('arriving_time')->nullable();
+            $table->string('train_code');
+            $table->integer('carriage_number');
+            $table->boolean('in_time');
+            $table->boolean('is_canceled');
         });
     }
 
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('trains_tables');
+        Schema::dropIfExists('train');
     }
 };
