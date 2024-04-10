@@ -25,5 +25,6 @@ class TrainSeeder extends Seeder
         $newTrain->carriage_number = $faker->randomNumber(2);
         $newTrain->in_time = $faker->boolean();
         $newTrain->is_canceled = $faker->boolean();
+        $newTrain->save();
     }
 }
